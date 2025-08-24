@@ -1,7 +1,7 @@
 from django.db import models
 
 class BlogPost(models.Model):
-    """Тема блога, который ведёт пользовтель"""
+    """Тема блога, который ведёт пользователь"""
     text = models.CharField(max_length=350)
     date_added = models.DateTimeField(auto_now_add=True)
     
@@ -10,7 +10,7 @@ class BlogPost(models.Model):
         return self.text
 
 class Entry(models.Model):
-    """Информация, изученная польтзователем по теие."""
+    """Информация, представленная пользователем по теие блога."""
     post = models.ForeignKey(BlogPost, on_delete=models.CASCADE)
     text = models.TextField()
     date_added = models.DateTimeField(auto_now_add=True)
