@@ -10,3 +10,10 @@ def blogs(request):
     blogs = BlogPost.objects.order_by('date_added')
     context = {'blogs': blogs}
     return render(request, 'blogs/blogs.html', context)
+
+def blog(request, blog_id):
+    """Выводит один блог и все записи."""
+    blog = BlogPost.objects.get(id=blog_id)
+    entries = blog.entry_set.order_by('date_added')
+    context = {'blog': blog, 'entries': entries}
+    return render(request, 'blogs/blog.html', context)
