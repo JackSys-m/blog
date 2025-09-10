@@ -6,7 +6,9 @@
   
   <ul>
     {% for blog in blogs %}
-      <li>{{blog}}</li>
+      <li>
+        <a href="{% url 'blogs:blog' blog.id %}">{{blog}}</a>
+      </li>
     {%empty%}
       <li>No blogs have been added yet.</li>
     {% endfor %}
