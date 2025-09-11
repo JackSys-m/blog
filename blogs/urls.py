@@ -11,4 +11,5 @@ urlpatterns = [
     path('blogs/', views.blogs, name='blogs'),
     # Страница с подробной информацией по отдельному блогу
     path('blogs/<int:blog_id>/', views.blog, name='blog'),
+    path('new_blog/', views.new_blog, name='new_blog'),
 ]
