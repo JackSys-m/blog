@@ -29,7 +29,7 @@ def new_blog(request):
         form = BlogForm(data=request.POST)
         if form.is_valid():
             form.save()
-            return redirect('blogs^:blogs')
+            return redirect('blogs:blogs')
 
     # Вывести пустую или недействительную форму
     context = {'form': form}
