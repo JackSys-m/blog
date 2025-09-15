@@ -5,6 +5,10 @@
   <p>Blog: {{blog}}</p>
 
   <p>Entries:</p>
+  <p>
+    <a href= "{% url "blogs:new_entry" blog.id %}">add new entry</a>
+  </p>
+
   <ul>
   {% for entry in entries %}
     <li>
