@@ -48,7 +48,7 @@ def new_entry(request, blog_id):
             new_entry = form.save(commit=False)
             new_entry.blog = blog
             new_entry.save()
-            return redirect('blogs:blogs', blog_id=blog_id)
+            return redirect('blogs:blog', blog_id=blog_id)
     # Вывести пустую или недействительную форму
     context = {'blog': blog, 'form': form}
     return render(request, 'blogs/new_entry.html', context)
