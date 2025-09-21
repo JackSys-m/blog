@@ -51,4 +51,4 @@ def new_entry(request, blog_id):
             return redirect('blogs:blogs', blog_id=blog_id)
     # Вывести пустую или недействительную форму
     context = {'blog': blog, 'form': form}
-    return render(request, 'blogs/new_blog.html', context)
+    return render(request, 'blogs/new_entry.html', context)
