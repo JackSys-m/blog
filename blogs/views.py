@@ -46,7 +46,7 @@ def new_entry(request, blog_id):
         form = EntryForm(data=request.POST)
         if form.is_valid():
             new_entry = form.save(commit=False)
-            new_entry.blog = blog
+            new_entry.post = blog
             new_entry.save()
             return redirect('blogs:blog', blog_id=blog_id)
     # Вывести пустую или недействительную форму
