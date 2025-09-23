@@ -56,7 +56,7 @@ def new_entry(request, blog_id):
 def edit_entry(request, entry_id):
     """Редактирует существующую запись."""
     entry = Entry.objects.get(id=entry_id)
-    blog = entry.blog
+    blog = entry.post
     
     if request.method != 'POST':
         # Исходный запрос; форма заполняется данными текущей записи.
