@@ -10,6 +10,7 @@
       </button>
     </form>
   {% else %}
+    <a href="{% url 'users:register' %}">Register</a> 
     <a href="{% url 'users:login' %}">log in</a> 
   {% endif %}
 </p>
