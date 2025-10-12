@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+
 from .models import BlogPost, Entry
 from .forms import BlogForm, EntryForm
 
@@ -19,6 +21,7 @@ def blog(request, blog_id):
     context = {'blog': blog, 'entries': entries}
     return render(request, 'blogs/blog.html', context)
 
+@login_required
 def new_blog(request):
     """Определяет новый блог."""
     if request.method != 'POST':
@@ -35,6 +38,7 @@ def new_blog(request):
     context = {'form': form}
     return render(request, 'blogs/new_blog.html', context)
 
+@login_required
 def new_entry(request, blog_id):
     """Добавляет новую запись по конкретному блогу."""
     blog = BlogPost.objects.get(id=blog_id)
@@ -53,6 +57,7 @@ def new_entry(request, blog_id):
     context = {'blog': blog, 'form': form}
     return render(request, 'blogs/new_entry.html', context)
 
+@login_required
 def edit_entry(request, entry_id):
     """Редактирует существующую запись."""
     entry = Entry.objects.get(id=entry_id)
