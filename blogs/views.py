@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.http import Http404
 
 from .models import BlogPost, Entry
 from .forms import BlogForm, EntryForm
@@ -62,6 +63,8 @@ def edit_entry(request, entry_id):
     """Редактирует существующую запись."""
     entry = Entry.objects.get(id=entry_id)
     blog = entry.post
+    if blog.owner != request.user:
+        raise Http404
     
     if request.method != 'POST':
         # Исходный запрос; форма заполняется данными текущей записи.
