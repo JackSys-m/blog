@@ -35,6 +35,9 @@ INSTALLED_APPS = [
     'blogs',
     'users',
     
+    # Сторонние приложения
+    'bootstrap4',
+    
     # Приложения django по  умолчанию
     'django.contrib.admin',
     'django.contrib.auth',
