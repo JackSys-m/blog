@@ -1,18 +1,14 @@
-<p>
-  <a href="{% url 'blogs:index' %}">Blog</a> -
-  <a href="{% url 'blogs:blogs' %}">Blogs</a> -
-  {% if user.is_authenticated %}
-    Hello, {{user.username}}.
-    <form action="{% url 'users:logout' %}" method="post" style="display: inline;">
-      {% csrf_token %}
-      <button type="submit" style="background: none; border: none; color: #ff7b00ff; text-decoration: underline; cursor: pointer; padding: 0; font: inherit;">
-        log out
-      </button>
-    </form>
-  {% else %}
-    <a href="{% url 'users:register' %}">Register</a> 
-    <a href="{% url 'users:login' %}">log in</a> 
-  {% endif %}
-</p>
+{% load bootstrap4 %}
 
-{% block content %}{% endblock content %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,
+      shrink-to-fit=no">
+    <title>Blog</title>
+
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='full' %}
+
+  </head>
