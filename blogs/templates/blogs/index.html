@@ -1,5 +1,12 @@
 {% extends "blogs/base.html" %}
 
-{% block content %}
-  <p>Blog allows you to follow the latest news in various fields.</p>
-{% endblock content %}
+{% block page_header %}
+  <div class='jumbotron'>
+    <h1 class="display-4">Run your own blog.</h1>
+
+    <p class="lead">Create your own blog! Write posts and create new discussion topics!</p>
+    
+    <a class="btn btn-lg btn-primary" href="{% url "users:register" %}"
+        role="button">Register &raquo;</a>
+  </div>
+{% endblock page_header %}
