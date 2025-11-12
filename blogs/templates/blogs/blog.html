@@ -1,26 +1,26 @@
 {% extends "blogs/base.html" %}
 
-{% block content %}
-  
-  <p>Blog: {{blog}}</p>
+{% block page_header %}
+  <h3>{{blog}}</h3>
+{% endblock page_header %}
 
-  <p>Entries:</p>
+{% block content %}
   <p>
-    <a href= "{% url "blogs:new_entry" blog.id %}">add new entry</a>
+    <a href= "{% url "blogs:new_entry" blog.id %}">Add new entry</a>
   </p>
 
-  <ul>
   {% for entry in entries %}
-    <li>
-        <p>{{entry.date_added|date:'M d, Y H:i' }}</p>
-        <p>{{entry.text|linebreaks }}</p>
-        <p>
-          <a href= "{% url "blogs:edit_entry" entry.id %}">Edit entry</a>
-        </p>
-    </li>
+    <div class="card mb-3">
+      <h4 class="card-header">
+        {{entry.date_added|date:'M d, Y H:i' }}
+        <small><a href= "{% url "blogs:edit_entry" entry.id %}">Edit entry</a></small>
+      </h4>
+      <div class="card-body">
+        {{entry.text|linebreaks}}
+      </div>
+    </div>
   {%empty%}
-    <li>There are no entries for this blog yet.</li>
+    <p>There are no entries for this blog yet.</p>
   {% endfor %}
-</ul>
 
 {% endblock content %}
